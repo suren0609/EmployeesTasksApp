@@ -1,0 +1,27 @@
+.EmployeesPage{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.empPageHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.empPageHeader h2{
+    font-size: 25px;
+}
+
+.empPageBody{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
