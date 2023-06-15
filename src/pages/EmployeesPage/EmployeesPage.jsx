@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEmployees } from "../../features/employee/employeeSlice";
 import "./EmployeesPage.css";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
+import CreateEmp from "../../components/CreateEmp/CreateEmp";
 
 const EmployeesPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const EmployeesPage = () => {
           <EmployeeCard key={emp.id} emp={emp}/>
         ))}
       </div>
+      <CreateEmp />
     </div>
   );
 };
