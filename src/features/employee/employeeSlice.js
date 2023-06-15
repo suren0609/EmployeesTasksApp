@@ -29,6 +29,14 @@ export const addEmployee = createAsyncThunk(
   }
 );
 
+export const updateEmployee = createAsyncThunk(
+  "employees/updateEmployee",
+  async (data, { rejectWithValue, dispatch }) => {
+    await axios.put(`${process.env.REACT_APP_EMPLOYEES_URL}/${data.id}`, data);
+    dispatch(updateEmp(data));
+  }
+);
+
 export const employeeSlice = createSlice({
   name: "employees",
   initialState,
@@ -44,19 +52,28 @@ export const employeeSlice = createSlice({
     addEmp: (state, action) => {
       state.employees.unshift(action.payload);
     },
-  },
-  extraReducers: {
-    [getEmployees.fulfilled]: () => console.log("fulfilled"),
-    [getEmployees.pending]: () => console.log("pending"),
-    [getEmployees.rejected]: () => console.log("rejected"),
-    [deleteEmployee.fulfilled]: () => console.log("fulfilled"),
-    [deleteEmployee.pending]: () => console.log("pending"),
-    [deleteEmployee.rejected]: () => console.log("rejected"),
-    [addEmployee.fulfilled]: () => console.log("fulfilled"),
-    [addEmployee.pending]: () => console.log("pending"),
-    [addEmployee.rejected]: () => console.log("rejected"),
+    updateEmp: (state, action) => {
+      state.employees = state.employees.map((emp) =>
+        emp.id === action.payload.id ? (emp = action.payload) : emp
+      );
+    },
+    extraReducers: {
+      [getEmployees.fulfilled]: () => console.log("fulfilled"),
+      [getEmployees.pending]: () => console.log("pending"),
+      [getEmployees.rejected]: () => console.log("rejected"),
+      [deleteEmployee.fulfilled]: () => console.log("fulfilled"),
+      [deleteEmployee.pending]: () => console.log("pending"),
+      [deleteEmployee.rejected]: () => console.log("rejected"),
+      [addEmployee.fulfilled]: () => console.log("fulfilled"),
+      [addEmployee.pending]: () => console.log("pending"),
+      [addEmployee.rejected]: () => console.log("rejected"),
+      [updateEmployee.fulfilled]: () => console.log("fulfilled"),
+      [updateEmployee.pending]: () => console.log("pending"),
+      [updateEmployee.rejected]: () => console.log("rejected"),
+    },
   },
 });
 
-export const { setEmployees, deleteEmp, addEmp } = employeeSlice.actions;
+export const { setEmployees, deleteEmp, addEmp, updateEmp } =
+  employeeSlice.actions;
 export default employeeSlice.reducer;

@@ -1,0 +1,35 @@
+.EditEmp{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.EditEmp form{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    
+}
+
+.EditEmp form div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.EditEmp form div input{
+    width: 250px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.updateBtn{
+    padding: 10px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    background: blueviolet;
+    color: white;
+    margin: 5px;
+}

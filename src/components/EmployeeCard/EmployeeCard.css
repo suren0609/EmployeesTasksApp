@@ -8,6 +8,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    transition: .5s;
 }
 
 .personData{
@@ -32,6 +33,7 @@
     color: rgb(61, 15, 15);
     cursor: pointer;
     display: none;
+    transition: .5s;
 }
 
 .EmployeeCard:hover{
@@ -39,5 +41,20 @@
 }
 
 .EmployeeCard:hover .delete{
+    display: block;
+}
+
+.editBtn{
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: rgb(61, 15, 15);
+    cursor: pointer;
+    display: none;
+    transition: .5s;
+}
+
+.EmployeeCard:hover .editBtn{
     display: block;
 }
