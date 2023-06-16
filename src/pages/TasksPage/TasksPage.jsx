@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../features/task/taskSlice";
 import TaskCard from "../../components/TaskCard/TaskCard";
 import "./TasksPage.css";
+import CreateTaskForm from "../../components/CreateTaskForm/CreateTaskForm";
 
 const TasksPage = () => {
-    
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTasks());
@@ -21,7 +21,7 @@ const TasksPage = () => {
           <TaskCard key={task.id} task={task} />
         ))}
       </div>
-      {/* <CreateEmp /> */}
+      <CreateTaskForm />
     </div>
   );
 };

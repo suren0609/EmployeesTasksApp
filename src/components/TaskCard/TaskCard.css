@@ -3,7 +3,7 @@
     border: .5px solid black;
     border-radius: 5px;
     margin-bottom: 10px;
-    height: 150px;
+    min-height: 150px;
     padding: 10px;
     display: flex;
     align-items: flex-start;

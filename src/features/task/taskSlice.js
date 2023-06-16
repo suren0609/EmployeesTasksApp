@@ -14,12 +14,20 @@ export const getTasks = createAsyncThunk(
 );
 
 export const deleteTask = createAsyncThunk(
-  "employees/deleteEmployee",
+  "employees/deleteTask",
   async (taskId, { rejectWithValue, dispatch }) => {
     await axios.delete(`${process.env.REACT_APP_DATA_URL}/tasks/${taskId}`);
     dispatch(delTask(taskId));
   }
 );
+
+export const createTask = createAsyncThunk(
+  "tasks/createTask",
+  async (data, { rejectWithValue, dispatch }) => {
+    const res = await axios.post(`${process.env.REACT_APP_DATA_URL}/tasks`, data);
+    dispatch(addTask(res.data));
+  }
+)
 
 
 export const taskSlice = createSlice({
