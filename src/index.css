@@ -11,8 +11,10 @@ body{
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    background: #254c64;
 }
 
 #root{
     width: 100%;
 }
+

@@ -1,0 +1,27 @@
+.TasksPage{
+    width: 80% !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.taskPageHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.taskPageHeader h2{
+    font-size: 25px;
+}
+
+.taskPageBody{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}

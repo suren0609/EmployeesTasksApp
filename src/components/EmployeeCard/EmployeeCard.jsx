@@ -9,6 +9,7 @@ const EmployeeCard = ({ emp }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isEditActive, setIsEditActive] = useState(false);
+
   return (
     <div className="EmployeeCard">
       <div className="personData">
@@ -18,7 +19,9 @@ const EmployeeCard = ({ emp }) => {
         <p>{emp.position}</p>
         <p className="email">{emp.email}</p>
       </div>
-      {isEditActive ? <EditEmp emp={emp} /> : null}
+      {isEditActive ? (
+        <EditEmp setIsEditActive={setIsEditActive} emp={emp} />
+      ) : null}
       <div className="updateAndDelete">
         <button
           className="delete"

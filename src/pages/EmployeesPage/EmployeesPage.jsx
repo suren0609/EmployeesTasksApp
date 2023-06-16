@@ -19,7 +19,7 @@ const EmployeesPage = () => {
       </div>
       <div className="empPageBody">
         {employees.map((emp) => (
-          <EmployeeCard key={emp.id} emp={emp}/>
+          <EmployeeCard key={emp.id} emp={emp} />
         ))}
       </div>
       <CreateEmp />

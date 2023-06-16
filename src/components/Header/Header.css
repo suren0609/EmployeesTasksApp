@@ -1,38 +1,42 @@
-.header{
-    width: 100%;
-    padding: 10px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgb(230, 230, 230);
+.header {
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: rgb(230, 230, 230); */
+  background: #133449;
 }
 
-.logo{
-    font-size: 25px;
-    background-color: cornflowerblue;
-    padding: 3px 5px;
-    
-    border-radius: 3px;
+.logo {
+  font-size: 25px;
+  background-color: cornflowerblue;
+  padding: 3px 5px;
+
+  border-radius: 3px;
 }
 
-.logo span{
-    color:blueviolet;
+.logo span {
+  color: blueviolet;
 }
 
-.navBar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 150px;
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
 }
 
-.navBar a{
-    font-size: 18px;
-    text-decoration: none;
-    color: rgb(44, 43, 43);
-
+.navBar a {
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(202, 202, 202);
 }
 
-.navBar a:hover{
-    color: blueviolet;
+.navBar a:hover {
+  color: blueviolet;
+}
+
+.active {
+  color: blueviolet !important;
 }

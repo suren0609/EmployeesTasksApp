@@ -8,7 +8,7 @@ const initialState = {
 export const getEmployees = createAsyncThunk(
   "employees/getEmployees",
   async (_, { rejectWithValue, dispatch }) => {
-    const res = await axios.get(process.env.REACT_APP_EMPLOYEES_URL);
+    const res = await axios.get(process.env.REACT_APP_DATA_URL+"/employees");
     dispatch(setEmployees(res.data));
   }
 );
@@ -16,7 +16,7 @@ export const getEmployees = createAsyncThunk(
 export const deleteEmployee = createAsyncThunk(
   "employees/deleteEmployee",
   async (empId, { rejectWithValue, dispatch }) => {
-    await axios.delete(`${process.env.REACT_APP_EMPLOYEES_URL}/${empId}`);
+    await axios.delete(`${process.env.REACT_APP_DATA_URL}/employees/${empId}`);
     dispatch(deleteEmp(empId));
   }
 );
@@ -24,15 +24,15 @@ export const deleteEmployee = createAsyncThunk(
 export const addEmployee = createAsyncThunk(
   "employees/addEmployee",
   async (data, { rejectWithValue, dispatch }) => {
-    await axios.post(`${process.env.REACT_APP_EMPLOYEES_URL}`, { data });
-    dispatch(addEmp(data));
+    const res = await axios.post(`${process.env.REACT_APP_DATA_URL}/employees`, data);
+    dispatch(addEmp(res.data));
   }
 );
 
 export const updateEmployee = createAsyncThunk(
   "employees/updateEmployee",
   async (data, { rejectWithValue, dispatch }) => {
-    await axios.put(`${process.env.REACT_APP_EMPLOYEES_URL}/${data.id}`, data);
+    await axios.put(`${process.env.REACT_APP_DATA_URL}/employees/${data.id}`, data);
     dispatch(updateEmp(data));
   }
 );
@@ -50,27 +50,27 @@ export const employeeSlice = createSlice({
       );
     },
     addEmp: (state, action) => {
-      state.employees.unshift(action.payload);
+      state.employees.push(action.payload);
     },
     updateEmp: (state, action) => {
       state.employees = state.employees.map((emp) =>
         emp.id === action.payload.id ? (emp = action.payload) : emp
       );
     },
-    extraReducers: {
-      [getEmployees.fulfilled]: () => console.log("fulfilled"),
-      [getEmployees.pending]: () => console.log("pending"),
-      [getEmployees.rejected]: () => console.log("rejected"),
-      [deleteEmployee.fulfilled]: () => console.log("fulfilled"),
-      [deleteEmployee.pending]: () => console.log("pending"),
-      [deleteEmployee.rejected]: () => console.log("rejected"),
-      [addEmployee.fulfilled]: () => console.log("fulfilled"),
-      [addEmployee.pending]: () => console.log("pending"),
-      [addEmployee.rejected]: () => console.log("rejected"),
-      [updateEmployee.fulfilled]: () => console.log("fulfilled"),
-      [updateEmployee.pending]: () => console.log("pending"),
-      [updateEmployee.rejected]: () => console.log("rejected"),
-    },
+  },
+  extraReducers: {
+    [getEmployees.fulfilled]: () => console.log("fulfilled"),
+    [getEmployees.pending]: () => console.log("pending"),
+    [getEmployees.rejected]: () => console.log("rejected"),
+    [deleteEmployee.fulfilled]: () => console.log("fulfilled"),
+    [deleteEmployee.pending]: () => console.log("pending"),
+    [deleteEmployee.rejected]: () => console.log("rejected"),
+    [addEmployee.fulfilled]: () => console.log("fulfilled"),
+    [addEmployee.pending]: () => console.log("pending"),
+    [addEmployee.rejected]: () => console.log("rejected"),
+    [updateEmployee.fulfilled]: () => console.log("fulfilled"),
+    [updateEmployee.pending]: () => console.log("pending"),
+    [updateEmployee.rejected]: () => console.log("rejected"),
   },
 });
 
