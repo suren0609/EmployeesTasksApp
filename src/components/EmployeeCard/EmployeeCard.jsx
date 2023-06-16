@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { deleteEmployee } from "../../features/employee/employeeSlice";
 import { useNavigate } from "react-router-dom";
 import EditEmp from "../EditEmp/EditEmp";
+import { NavLink as Link } from "react-router-dom";
 
 const EmployeeCard = ({ emp }) => {
   const dispatch = useDispatch();
@@ -13,9 +14,9 @@ const EmployeeCard = ({ emp }) => {
   return (
     <div className="EmployeeCard">
       <div className="personData">
-        <h3 onClick={() => navigate(`employee/${emp.id}`)}>
+        <Link to={`employee/${emp.id}`}>
           {emp.name + " " + emp.surname}
-        </h3>
+        </Link>
         <p>{emp.position}</p>
         <p className="email">{emp.email}</p>
       </div>

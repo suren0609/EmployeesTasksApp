@@ -30,7 +30,7 @@ const CreateTaskForm = () => {
   };
   return (
     <div className="CreateTaskForm">
-      <h3>Add new Employee</h3>
+      <h3>Add new Task</h3>
       <form onSubmit={addTaskHandler}>
         <input
           type="text"

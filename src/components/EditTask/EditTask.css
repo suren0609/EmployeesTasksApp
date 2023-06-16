@@ -1,0 +1,64 @@
+.EditTask {
+  width: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  border-radius: 5px;
+  background: #214053;
+  z-index: 100;
+  padding: 10px;
+}
+
+.EditTask form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.EditTask form input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background: #091b25;
+  color: rgb(183, 183, 183);
+  outline: none;
+  border: 0.5px solid rgb(51, 51, 51);
+  border-radius: 3px;
+}
+
+.EditTask form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  font-size: 16px;
+  resize: none;
+
+  outline: none;
+  border: 0.5px solid rgb(51, 51, 51);
+  border-radius: 3px;
+  margin: 5px 0;
+  background: #091b25;
+  color: rgb(183, 183, 183);
+}
+
+.updateBtn {
+  padding: 10px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background: blueviolet;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.inputTitle {
+  font-size: 10px;
+  color: rgb(201, 201, 201);
+  text-align: start;
+}

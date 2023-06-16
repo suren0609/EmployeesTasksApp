@@ -12,7 +12,7 @@ const Header = () => {
         Car<span>ee</span>r
       </div>
       <div className="navBar">
-        <Link to="/" className={splitPath[1] === "" ? "active" : ""}>
+        <Link to="/" className={splitPath[1] === "" || splitPath[1] === "employee" ? "active" : ""}>
           Employees
         </Link>
         <Link to="/tasks" className={splitPath[1] === "tasks" ? "active" : ""}>

@@ -10,6 +10,7 @@
     justify-content: space-between;
     transition: .5s;
     box-shadow: 5px 5px 10px #133449;
+    position: relative;
 }
 
 .taskData{

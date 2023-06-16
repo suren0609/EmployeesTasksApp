@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TaskCard.css";
 import { useNavigate } from "react-router-dom";
 import { deleteTask } from "../../features/task/taskSlice";
 import { useDispatch } from "react-redux";
+import EditTask from "../EditTask/EditTask";
 
 const TaskCard = ({ task }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isEditActive, setIsEditActive] = useState(false);
   return (
     <div className="TaskCard">
       <div className="personData">
@@ -16,9 +18,9 @@ const TaskCard = ({ task }) => {
           {task.startdate}-{task.enddate}
         </p>
       </div>
-      {/* {isEditActive ? (
-        <EditEmp setIsEditActive={setIsEditActive} emp={emp} />
-      ) : null} */}
+      {isEditActive ? (
+        <EditTask setIsEditActive={setIsEditActive} task={task} />
+      ) : null}
       <div className="updateAndDelete">
         <button
           className="delete"
@@ -29,7 +31,7 @@ const TaskCard = ({ task }) => {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            // setIsEditActive((prev) => !prev);
+            setIsEditActive((prev) => !prev);
           }}
           className="editBtn"
         >

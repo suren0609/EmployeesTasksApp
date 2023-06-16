@@ -3,13 +3,23 @@ import axios from "axios";
 
 const initialState = {
   employees: [],
+  employee: {},
 };
 
 export const getEmployees = createAsyncThunk(
   "employees/getEmployees",
   async (_, { rejectWithValue, dispatch }) => {
-    const res = await axios.get(process.env.REACT_APP_DATA_URL+"/employees");
+    const res = await axios.get(process.env.REACT_APP_DATA_URL + "/employees");
     dispatch(setEmployees(res.data));
+  }
+);
+export const getOneEmployee = createAsyncThunk(
+  "employees/getOneEmployee",
+  async (id, { rejectWithValue, dispatch }) => {
+    const res = await axios.get(
+      process.env.REACT_APP_DATA_URL + "/employees/" + id
+    );
+    dispatch(setOneEmp(res.data));
   }
 );
 
@@ -24,7 +34,10 @@ export const deleteEmployee = createAsyncThunk(
 export const addEmployee = createAsyncThunk(
   "employees/addEmployee",
   async (data, { rejectWithValue, dispatch }) => {
-    const res = await axios.post(`${process.env.REACT_APP_DATA_URL}/employees`, data);
+    const res = await axios.post(
+      `${process.env.REACT_APP_DATA_URL}/employees`,
+      data
+    );
     dispatch(addEmp(res.data));
   }
 );
@@ -32,7 +45,10 @@ export const addEmployee = createAsyncThunk(
 export const updateEmployee = createAsyncThunk(
   "employees/updateEmployee",
   async (data, { rejectWithValue, dispatch }) => {
-    await axios.put(`${process.env.REACT_APP_DATA_URL}/employees/${data.id}`, data);
+    await axios.put(
+      `${process.env.REACT_APP_DATA_URL}/employees/${data.id}`,
+      data
+    );
     dispatch(updateEmp(data));
   }
 );
@@ -57,6 +73,9 @@ export const employeeSlice = createSlice({
         emp.id === action.payload.id ? (emp = action.payload) : emp
       );
     },
+    setOneEmp: (state, action) => {
+      state.employee = action.payload;
+    },
   },
   extraReducers: {
     [getEmployees.fulfilled]: () => console.log("fulfilled"),
@@ -71,9 +90,12 @@ export const employeeSlice = createSlice({
     [updateEmployee.fulfilled]: () => console.log("fulfilled"),
     [updateEmployee.pending]: () => console.log("pending"),
     [updateEmployee.rejected]: () => console.log("rejected"),
+    [getOneEmployee.fulfilled]: () => console.log("fulfilled"),
+    [getOneEmployee.pending]: () => console.log("pending"),
+    [getOneEmployee.rejected]: () => console.log("rejected"),
   },
 });
 
-export const { setEmployees, deleteEmp, addEmp, updateEmp } =
+export const { setEmployees, deleteEmp, addEmp, updateEmp, setOneEmp } =
   employeeSlice.actions;
 export default employeeSlice.reducer;
