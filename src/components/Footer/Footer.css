@@ -6,6 +6,8 @@
   justify-content: center;
   /* background: rgb(230, 230, 230); */
   background: #133449;
+  position: fixed;
+  bottom: 0;
 }
 
 .Footer .logo {

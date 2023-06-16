@@ -6,6 +6,9 @@
   justify-content: space-between;
   /* background: rgb(230, 230, 230); */
   background: #133449;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
