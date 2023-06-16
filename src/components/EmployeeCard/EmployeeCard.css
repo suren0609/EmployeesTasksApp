@@ -18,7 +18,9 @@
     
 }
 
-.personData h3{
+.personData a{
+    font-size: 30px;
+    text-decoration: none;
     color: cornflowerblue;
 }
 

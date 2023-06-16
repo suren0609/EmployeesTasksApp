@@ -1,20 +1,36 @@
-*{
-    box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-body{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    background: #254c64;
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background: #254c64;
 }
 
-#root{
-    width: 100%;
+#root {
+  width: 100%;
 }
 
+@media screen and (max-width: 449px) {
+  .CreateEmp form input,
+  .CreateTaskForm form input,
+  .EditEmp form div input,
+  .CreateTaskForm form textarea,
+  .CreateTaskForm form select,
+  .EditTask form textarea,
+  .EditTask form input,
+  .EditTask form select {
+    max-width: 200px !important;
+  }
+  .EditTask{
+    max-width: 230px;
+  }
+  
+}

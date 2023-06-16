@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import "./EmployeeCard.css";
 import { useDispatch } from "react-redux";
 import { deleteEmployee } from "../../features/employee/employeeSlice";
-import { useNavigate } from "react-router-dom";
 import EditEmp from "../EditEmp/EditEmp";
 import { NavLink as Link } from "react-router-dom";
 
 const EmployeeCard = ({ emp }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isEditActive, setIsEditActive] = useState(false);
 
   return (
